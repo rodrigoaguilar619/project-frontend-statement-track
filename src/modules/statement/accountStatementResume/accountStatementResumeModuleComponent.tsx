@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { AccountStatementResumeModulePropsI } from "@app/_types/modules/statement/accountStatementResume";
 import { CatalogDataTypeEnum } from "@app/catalogs/enumCatalog";
@@ -22,12 +21,13 @@ import { buildFormDataContainers, getParameterCall } from "lib-components-react/
 import { maskData } from "lib-components-react/lib/utils/dataUtils/maskDataUtil";
 import { debug, generateDebugClassModule } from "lib-components-react/lib/utils/webUtils/debugUtil";
 import { manageAlertModuleError } from "lib-components-react/lib/utils/webUtils/httpManagerUtil";
+import { getSafeLocation } from "lib-components-react/lib/utils/webUtils/routeUtil";
 import { columnsAccountDividends, columnsAccountMoneyMovements, columnsFilterAccountStatementResumeFilter, inputColumnsFilter, inputColumnsFilterDateRangeSection, inputColumnsFilterYearSection, inputFilterAccountStatementResumeIds } from "./accountStatementResumeModuleConfig";
 
 const AccountStatementResumeModuleComponent: React.FC<AccountStatementResumeModulePropsI> = (props) => {
 
     const dispatch = useDispatch();
-    let location = useLocation();
+    let location = getSafeLocation();
 
     const idBrokerAccount = getParameterCall(location, props, "idBrokerAccount");
     const [modalState, setOpenModal, setCloseModal, setBodyModal, setTitleModal] = useHookModal();

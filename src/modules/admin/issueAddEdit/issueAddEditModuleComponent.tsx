@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { IssueAddEditModulePropsI } from '@app/_types/modules/issues/issueAddEdit';
 import { addEditIssueService, getIssueByIdService } from '@app/controller/services/issuesService';
 import { FormInputColumnPropsI, FormInputContainerPropsI } from 'lib-components-react/lib/@types/components/formInputs/formInputs';
@@ -16,12 +15,13 @@ import { deepClone } from 'lib-components-react/lib/utils/dataUtils/dataUtil';
 import { buildSimpleReactValidator } from 'lib-components-react/lib/utils/pluginUtils/simpleReactValidatorUtil';
 import { debug, generateDebugClassModule, showDataDevelopment } from 'lib-components-react/lib/utils/webUtils/debugUtil';
 import { manageAlertModuleError } from 'lib-components-react/lib/utils/webUtils/httpManagerUtil';
+import { getSafeLocation } from "lib-components-react/lib/utils/webUtils/routeUtil";
 import { formContainersIssueMovement as formContainersIssue, inputIssueIds } from './issueAddEditModuleConfig';
 
 const IssueMovementAddEditModuleComponent: React.FC<IssueAddEditModulePropsI> = (props) => {
 
     const dispatch = useDispatch();
-    const location = useLocation();
+    const location = getSafeLocation();
     const idIssue = getParameterCall(location, props, "idIssue");
     const optionAddEdit: OptionAddEditEnum = idIssue ? OptionAddEditEnum.EDIT : OptionAddEditEnum.ADD;
     const [formIssueData, setFormIssueData] = useState<Record<string, any>>({});

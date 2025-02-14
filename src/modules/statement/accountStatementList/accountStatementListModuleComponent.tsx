@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import { getParameterCall } from "lib-components-react/lib/utils/componentUtils/formUtil";
 import { AccountStatementListModulePropsI } from "@app/_types/modules/statement/accountStatementList";
-import { useDispatch } from "react-redux";
 import { setTemplateHeaderSubTitleAction } from "lib-components-react/lib/controller/actions/templateHeaderAction";
 import { debug, generateDebugClassModule } from "lib-components-react/lib/utils/webUtils/debugUtil";
 import { setTemplateLoadingActiveMessageAction, setTemplateLoadingIsActiveAction } from "lib-components-react/lib/controller/actions/templateLoadingAction";
-import axios from "axios";
 import { getAccountStatementService, getDateStatementsService } from "@app/controller/services/accountStatementService";
 import { manageAlertModuleError } from "lib-components-react/lib/utils/webUtils/httpManagerUtil";
 import AccountStatementModuleComponent from "../accountStatement/accountStatementModuleComponent";
-import { useLocation } from "react-router-dom";
 import { getMonthName } from "@app/utils/statementDateUtil";
+import { getSafeLocation } from "lib-components-react/lib/utils/webUtils/routeUtil";
 
 const AccountStatementListModuleComponent: React.FC<AccountStatementListModulePropsI> = (props) => {
 
     const dispatch = useDispatch();
-    let location = useLocation();
+    let location = getSafeLocation();
     
     const idBrokerAccount = getParameterCall(location, props, "idBrokerAccount");
     const [statementDatesList, setStatementDatesList] = React.useState<any>([]);

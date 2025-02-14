@@ -12,15 +12,15 @@ import { setTemplateHeaderSubTitleAction } from "lib-components-react/lib/contro
 import { setTemplateLoadingActiveMessageAction, setTemplateLoadingIsActiveAction } from "lib-components-react/lib/controller/actions/templateLoadingAction";
 import { debug, generateDebugClassModule } from "lib-components-react/lib/utils/webUtils/debugUtil";
 import { manageAlertModuleError } from "lib-components-react/lib/utils/webUtils/httpManagerUtil";
+import { getSafeNavigate, redirectSamePage } from "lib-components-react/lib/utils/webUtils/routeUtil";
 import { columnsBrokerAccountList } from "./brokerAccountListModuleConfig";
 import { BrokerAccountListModulePropsI } from "@app/_types/modules/brokerAccount/brokerAccountList";
-import { useNavigate } from "react-router-dom";
 import { ROUTE_ACCOUNT_STATEMENT_LIST_GET, ROUTE_ACCOUNT_STATEMENT_RESUME_GET, ROUTE_ISSUES_ACCOUNT_LIST_GET } from "@app/catalogs/routesCatalog";
 
 const BrokerAccountListModuleComponent: React.FC<BrokerAccountListModulePropsI> = (props) => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = getSafeNavigate();
 
     const [brokerAccountList, setBrokerAccountList] = useState<[]>([]);
 
@@ -68,15 +68,15 @@ const BrokerAccountListModuleComponent: React.FC<BrokerAccountListModulePropsI> 
     }
 
     const redirectToAccountStatement = (idBrokerAccount: number) => {
-        navigate(ROUTE_ACCOUNT_STATEMENT_LIST_GET, { state: { idBrokerAccount: idBrokerAccount } });
+        redirectSamePage(navigate, ROUTE_ACCOUNT_STATEMENT_LIST_GET, { idBrokerAccount: idBrokerAccount });
     };
 
     const redirectToAccountStatementResume = (idBrokerAccount: number) => {
-        navigate(ROUTE_ACCOUNT_STATEMENT_RESUME_GET, { state: { idBrokerAccount: idBrokerAccount } });
+        redirectSamePage(navigate, ROUTE_ACCOUNT_STATEMENT_RESUME_GET, { idBrokerAccount: idBrokerAccount });
     };
 
     const redirectToIssuesAccount = (idBrokerAccount: number) => {
-        navigate(ROUTE_ISSUES_ACCOUNT_LIST_GET, { state: { idBrokerAccount: idBrokerAccount } });
+        redirectSamePage(navigate, ROUTE_ISSUES_ACCOUNT_LIST_GET, { idBrokerAccount: idBrokerAccount });
     };
 
     const initModule = () => {

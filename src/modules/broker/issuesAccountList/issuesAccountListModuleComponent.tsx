@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { IssuesAccountListModulePropsI } from "@app/_types/modules/brokerAccount/issuesAccountList";
 import { getIssuesAccountListService } from "@app/controller/services/brokerAccountService";
@@ -18,11 +17,12 @@ import useHookModal from 'lib-components-react/lib/hookStates/modalHookState';
 import { getParameterCall } from "lib-components-react/lib/utils/componentUtils/formUtil";
 import { debug, generateDebugClassModule } from "lib-components-react/lib/utils/webUtils/debugUtil";
 import { manageAlertModuleError } from "lib-components-react/lib/utils/webUtils/httpManagerUtil";
+import { getSafeLocation } from "lib-components-react/lib/utils/webUtils/routeUtil";
 import { columnsIssuesAccountList } from "./issuesAccountListModuleConfig";
 const IssuesAccountListModuleComponent: React.FC<IssuesAccountListModulePropsI> = (props) => {
 
     const dispatch = useDispatch();
-    let location = useLocation();
+    let location = getSafeLocation();
 
     const idBrokerAccount = getParameterCall(location, props, "idBrokerAccount");
     const [issuesAccountList, setIssuesAccountList] = useState<[]>([]);

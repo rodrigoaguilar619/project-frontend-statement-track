@@ -14,15 +14,15 @@ const routesDev: any = [
 ]
 
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
-  { path: ROUTE_ISSUES_LIST_GET, name: 'Issues List', element: () => <IssuesListComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_BROKER_ACCOUNT_LIST_GET, name: 'Broker Accounts', element: () => <BrokerAccountListComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ACCOUNT_STATEMENT_LIST_GET, name: 'Account Statement', element: () => <AccountStatementListModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ISSUES_ACCOUNT_LIST_GET, name: 'Issues Accounts', element: () => <IssuesAccountListComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ACCOUNT_STATEMENT_FILTER_GET, name: 'Account Statement Filter', element: () => <AccountStatementFilterComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ACCOUNT_STATEMENT_RESUME_GET, name: 'Account Statement Resume', element: () => <AccountStatementResumeModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, name: 'Account Statement SnowBall File Load', element: () => <AccountStatementFileLoadComponent componentType={ComponentTypeEnum.MODULE} /> },
-]
+  //{ path: '/', exact: true, name: 'Home', element: null },
+  { path: ROUTE_ISSUES_LIST_GET, name: 'Issues List', element: <IssuesListComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_BROKER_ACCOUNT_LIST_GET, name: 'Broker Accounts', element: <BrokerAccountListComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_ACCOUNT_STATEMENT_LIST_GET, name: 'Account Statement', element: <AccountStatementListModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_ISSUES_ACCOUNT_LIST_GET, name: 'Issues Accounts', element: <IssuesAccountListComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_ACCOUNT_STATEMENT_FILTER_GET, name: 'Account Statement Filter', element: <AccountStatementFilterComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_ACCOUNT_STATEMENT_RESUME_GET, name: 'Account Statement Resume', element: <AccountStatementResumeModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, name: 'Account Statement SnowBall File Load', element: <AccountStatementFileLoadComponent componentType={ComponentTypeEnum.MODULE} /> }
+];
 
 const finalRoutes = _APP_ENVIRONMENT_ === EnvironmentEnum.DEVELOPMENT ? [...routes, ...routesDev] : routes;
 
