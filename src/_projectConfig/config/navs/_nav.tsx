@@ -1,11 +1,21 @@
-import { ROUTE_ACCOUNT_STATEMENT_FILTER_GET, ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, ROUTE_BROKER_ACCOUNT_LIST_GET, ROUTE_ISSUES_LIST_GET } from '@app/catalogs/routesCatalog'
+import { ROUTE_ACCOUNT_STATEMENT_FILTER_GET, ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, ROUTE_AFORE_PERIODS_RESUME_STATEMENT_LIST_GET, ROUTE_BROKER_ACCOUNT_LIST_GET, ROUTE_ISSUES_LIST_GET } from '@app/catalogs/routesCatalog'
 import { AppMenusPropsDataI } from 'lib-components-react/lib/@types/components/layout/appMenuLayout'
 import { ROUTE_LOGOUT } from 'lib-components-react/lib/catalogs/routesCatalog'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding, faExternalLink, faFile, faFilter, faList, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding, faExternalLink, faFile, faFilter, faList, faRightFromBracket, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { PATH_API_DOCUMENTATION } from '@app/catalogs/uriCatalog';
 
 const _nav: AppMenusPropsDataI[] = [
+    {
+      text: 'Afore',
+      icon: <FontAwesomeIcon icon={faWallet} className="nav-icon menu-icon" />,
+      children: [
+        {
+          text: 'Periods Statement',
+          url: ROUTE_AFORE_PERIODS_RESUME_STATEMENT_LIST_GET
+        }
+      ]
+    },
     {
       text: 'Issues Catalog',
       url: ROUTE_ISSUES_LIST_GET,

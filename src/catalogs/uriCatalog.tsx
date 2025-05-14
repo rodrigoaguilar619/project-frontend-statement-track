@@ -14,4 +14,7 @@ export const URL_ISSUE_DIVIDENDS_ACCOUNT_LIST = _URL_API_MAIN_ + "api/account/is
 export const URL_ACCOUNT_RESUME_GET = _URL_API_MAIN_ + "api/account/getAccountResume";
 export const URL_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD = _URL_API_MAIN_ + "api/readStatement/readStatementSnowBall";
 
+export const URL_AFORE_PERIODS_RESUME_STATEMENT_GET = _URL_API_MAIN_ + "api/afore/getAforePeriodsResume";
+export const URL_AFORE_PERIOD_STATEMENT_GET = _URL_API_MAIN_ + "api/afore/getAforePeriodData";
+
 export const PATH_API_DOCUMENTATION = _URL_API_MAIN_ + "swagger-ui/index.html";

@@ -9,13 +9,13 @@ const AccountStatementModuleComponent: React.FC<AccountStatementModulePropsI> = 
         <div style={{padding: "3px"}}>
             <div>
                 <div style={{float: "left", width: "25%"}}><b>Previous Balance: {props.previousBalance}</b></div>
-                <div style={{float: "left", width: "20%"}}><b>Current Balance: {props.currentBalance}</b></div>
+                <div style={{float: "left", width: "25%"}}><b>Current Balance: {props.currentBalance}</b></div>
+                <div style={{float: "left", width: "25%"}}><b>Day cut: {props.dayCut == -1 ? "Last day of month" : props.dayCut}</b></div>
+                <div style={{float: "left", width: "25%"}}><b>BrokerAccount: {props.brokerAccount}</b></div>
             </div>
             <div style={{clear: "both", paddingTop: "2px"}}>
                 <div style={{float: "left", width: "25%"}}><b>Year: {props.year}</b></div>
                 <div style={{float: "left", width: "25%"}}><b>Month: {props.month}</b></div>
-                <div style={{float: "left", width: "25%"}}><b>Day cut: {props.dayCut == -1 ? "Last day of month" : props.dayCut}</b></div>
-                <div style={{float: "left", width: "25%"}}><b>BrokerAccount: {props.brokerAccount}</b></div>
             </div>
         </div>
         <div style={{clear: "both"}}>
