@@ -1,4 +1,5 @@
-import { ROUTE_ACCOUNT_STATEMENT_FILTER_GET, ROUTE_ACCOUNT_STATEMENT_LIST_GET, ROUTE_ACCOUNT_STATEMENT_RESUME_GET, ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, ROUTE_BROKER_ACCOUNT_LIST_GET, ROUTE_ISSUES_ACCOUNT_LIST_GET, ROUTE_ISSUES_LIST_GET } from '@app/catalogs/routesCatalog';
+import { ROUTE_ACCOUNT_STATEMENT_FILTER_GET, ROUTE_ACCOUNT_STATEMENT_LIST_GET, ROUTE_ACCOUNT_STATEMENT_RESUME_GET, ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, ROUTE_AFORE_PERIODS_RESUME_STATEMENT_LIST_GET, ROUTE_BROKER_ACCOUNT_LIST_GET, ROUTE_ISSUES_ACCOUNT_LIST_GET, ROUTE_ISSUES_LIST_GET } from '@app/catalogs/routesCatalog';
+import PeriodStatementListModuleComponent from '@app/modules/afore/periodStatementList/periodStatementListModuleComponent';
 import { _APP_ENVIRONMENT_ } from 'lib-components-react/lib/catalogs/constantCatalog';
 import { ComponentTypeEnum, EnvironmentEnum } from 'lib-components-react/lib/catalogs/enumCatalog';
 import React from 'react';
@@ -21,7 +22,8 @@ const routes = [
   { path: ROUTE_ISSUES_ACCOUNT_LIST_GET, name: 'Issues Accounts', element: <IssuesAccountListComponent componentType={ComponentTypeEnum.MODULE} /> },
   { path: ROUTE_ACCOUNT_STATEMENT_FILTER_GET, name: 'Account Statement Filter', element: <AccountStatementFilterComponent componentType={ComponentTypeEnum.MODULE} /> },
   { path: ROUTE_ACCOUNT_STATEMENT_RESUME_GET, name: 'Account Statement Resume', element: <AccountStatementResumeModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
-  { path: ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, name: 'Account Statement SnowBall File Load', element: <AccountStatementFileLoadComponent componentType={ComponentTypeEnum.MODULE} /> }
+  { path: ROUTE_ACCOUNT_STATEMENT_SNOWBALL_FILE_LOAD, name: 'Account Statement SnowBall File Load', element: <AccountStatementFileLoadComponent componentType={ComponentTypeEnum.MODULE} /> },
+  { path: ROUTE_AFORE_PERIODS_RESUME_STATEMENT_LIST_GET, name: 'Afore Periods Resume Statement List', element: <PeriodStatementListModuleComponent componentType={ComponentTypeEnum.MODULE} /> },
 ];
 
 const finalRoutes = _APP_ENVIRONMENT_ === EnvironmentEnum.DEVELOPMENT ? [...routes, ...routesDev] : routes;
